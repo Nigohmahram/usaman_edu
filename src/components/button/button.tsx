@@ -3,12 +3,15 @@ import styles from './button.module.css';
 import cn from 'classnames';
 import ArrowIcon from './arrow.svg';
 
-const Button = ({appearance, arrow = 'none', children }: ButtonProps): JSX.Element => {
+const Button = ({appearance, arrow = 'none', children, ...props }: ButtonProps): JSX.Element => {
   return (
     <button className={cn(styles.button, {
         [styles.primary]: appearance === 'primary',
         [styles.ghost]: appearance === 'ghost',
-    })}>{children}
+    })}
+    {...props}
+    >
+        {children}
 
 {arrow !== 'none' && (
 				<span

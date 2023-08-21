@@ -1,7 +1,7 @@
 import { TagProps } from "./tag.props";
 import styles from './tag.module.css';
 import cn from 'classnames';
-const Tag = ({size = 'm', color = 'primary', children}: TagProps): JSX.Element => {
+const Tag = ({size = 'm', color = 'primary', children, ...props}: TagProps): JSX.Element => {
   return (
     <div className={cn(styles.tag, {
         [styles.s]: size === 's',
@@ -9,7 +9,10 @@ const Tag = ({size = 'm', color = 'primary', children}: TagProps): JSX.Element =
         [styles.red]: color === 'red',
         [styles.primary]: color === 'primary',
         [styles.green]: color === 'green',
-    })}>{children}</div>
+    })}
+    {...props}
+    >
+      {children}</div>
   );
 };
 
