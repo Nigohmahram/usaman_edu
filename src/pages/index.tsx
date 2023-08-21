@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Heading, Text, Tag, Button } from '../components';
+import { Heading, Text, Tag, Button, Input, TextArea } from '../components';
 
 
 const Index = () => {
@@ -18,6 +18,9 @@ const Index = () => {
       <Button appearance='primary' arrow='down'>
 				down
 			</Button>
+      <br />
+      <Input placeholder='Enter'/>
+      <TextArea placeholder='Message'/>
     </div>
   );
 };
