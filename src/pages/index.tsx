@@ -1,8 +1,11 @@
 import React from 'react';
+import { Heading } from '../components';
 
 const Index = () => {
   return (
-    <div>Hello World</div>
+    <div>
+      <Heading tag='h1'>children</Heading>
+    </div>
   );
 };
 
