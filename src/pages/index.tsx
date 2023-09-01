@@ -3,13 +3,16 @@ import { Heading, Text, Tag, Button, Input, TextArea, Rating, Card } from '../co
 import { withLayout } from '../layout/layout';
 import axios from 'axios';
 import { GetServerSideProps } from 'next';
+import { MenuItem } from '../interfaces/menu.interface';
 
-const Index = () => {
+const Index = ({ firstCategory, menu }: HomeProps): JSX.Element => {
 	const [isClick, setIsClick] = useState(false);
 	const [rating, setRating] = useState<number>(4);
+	console.log(menu);
+
 	return (
 		<>
-			<Heading tag='h1'>Heading</Heading>
+			<Heading tag='h2'>Heading</Heading>
 			<Text size='l'>Text</Text>
 			<Tag size='s' color='red'>
 				Legendary
@@ -41,18 +44,29 @@ const Index = () => {
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis neque incidunt suscipit voluptate ratione facere quos
 				amet. Adipisci, cum eaque?
 			</Card>
+			<ul>
+				{menu.map(c => (
+					<li key={c._id.secondCategory}>{c._id.secondCategory}</li>
+				))}
+			</ul>
 		</>
 	);
 };
 
 export default withLayout(Index);
 
-export const getServerSideProps: GetServerSideProps = async () => {
-	const { data } = await axios.post(`${process.env.NEXT_PUBLIC_DOMAIN}/api/page-find`, { firstCategory: 0 });
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+	const firstCategory = 0;
+	const { data: menu } = await axios.post<MenuItem[]>(`${process.env.NEXT_PUBLIC_DOMAIN}/api/page-find`, { firstCategory });
 
 	return {
 		props: {
-			data,
+			menu,
+			firstCategory,
 		},
 	};
 };
+interface HomeProps extends Record<string, unknown> {
+	firstCategory: number;
+	menu: MenuItem[];
+}
