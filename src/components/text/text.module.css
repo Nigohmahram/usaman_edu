@@ -1,21 +1,18 @@
-.p{
-        margin: 0;
+.p {
+	margin: 0;
 }
 
-.m{
-        font-size: 14px;
-        line-height: 24px;
-        /* color: red; */
+.s {
+	font-size: 14px;
+	line-height: 24px;
 }
 
-.s{
-                font-size: 16px;
-                line-height: 26px;
-                /* color: blue; */
+.m {
+	font-size: 16px;
+	line-height: 24px;
 }
 
-.l{
-                font-size: 18px;
-                line-height: 29px;
-                /* color: yellow; */
+.l {
+	font-size: 18px;
+	line-height: 29px;
 }
