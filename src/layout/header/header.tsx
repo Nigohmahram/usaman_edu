@@ -11,6 +11,7 @@ import Link from 'next/link';
 const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 
+	const nike = 'Usman';
 	const toggleMenu = () => setIsOpen(prev => !prev);
 
 	const variants = {

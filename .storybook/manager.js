@@ -1,6 +1,6 @@
 import { addons } from '@storybook/addons';
-import sammiTheme from './sammi-theme';
+import usmanTheme from './usman-theme';
 
 addons.setConfig({
-	theme: sammiTheme,
+	theme: usmanTheme,
 });
